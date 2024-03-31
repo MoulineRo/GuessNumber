@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //Пояснюемо правила гри
+    alert("Hi user, you have to choose number from 1 till 10")
+    //Запитуемо підтвердження згоди пограти
+    user_agree = confirm("Do you want to play?")
+    // Якщо юзер натиснув ок то будет True и ми поподаемо у основний блок коду,
+    // якщо ні тоді пропонуемо пограти наступного разу
+    if (user_agree !== false) {
+        //Генеруемо число
+        const randomNumber = Math.floor(Math.random() * 10) + 1;
+        // Отримуемо число від юзера
+        const check_input = prompt("guess number")
+        //Робимо валідацию регуляркою, та відкидаемо все що не числа
+        const userNumber = check_input.match(/[0-9.,:*]+/);
+        //Якщо будет не числа то отримоемо повидомлення що строку вводити не можна
+        if (userNumber !== null) {
+            // Конвертуемо строку у число щоб порівняти юзеровский ввод
+            if (Number(userNumber) === randomNumber) {
+                //Якщо юзер вгадав то отримаємо вітання
+                alert("Congrats, you are win this game")
+
+            } else (
+                //Якщо не вгадав тоді показуємо вірне число
+                alert(`You missed, correct number is ${randomNumber}`)
+            )
+            // Дякуємо за гру
+            alert("Thank you for game")
+        } else (
+            alert("You have to put only number type, not string")
+        )
+
+    } else (
+        alert("We will play at next time then. Good bye")
+    )
+</script>
+</body>
+</html>
